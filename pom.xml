@@ -19,50 +19,6 @@
         <plugins>
             <!-- Build and push docker image -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>1</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>com.datadoghq</groupId>
-                                    <artifactId>dd-java-agent</artifactId>
-                                    <version>LATEST</version>
-                                    <type>jar</type>
-                                    <outputDirectory>${project.build.directory}/libext</outputDirectory>
-                                    <destFileName>dd-java-agent.jar</destFileName>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>2</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>org.postgresql</groupId>
-                                    <artifactId>postgresql</artifactId>
-                                    <version>LATEST</version>
-                                    <type>jar</type>
-                                    <outputDirectory>${project.build.directory}/libext</outputDirectory>
-                                    <destFileName>postgresql.jar</destFileName>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.33.0</version>
@@ -77,24 +33,10 @@
                         <configuration>
                             <images>
                                 <image>
-                                    <name>hub.bcom.syncromed.it:5000/payaralogger:${project.version}</name>
+                                    <name>payaralogger:${project.version}</name>
                                     <build>
                                         <contextDir>${project.basedir}</contextDir>
                                     </build>
-                                </image>
-                            </images>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>docker-deploy</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>push</goal>
-                        </goals>
-                        <configuration>
-                            <images>
-                                <image>
-                                    <name>hub.bcom.syncromed.it:5000/payaralogger:${project.version}</name>
                                 </image>
                             </images>
                         </configuration>
