@@ -1,0 +1,3 @@
+
+list-log-attributes
+set-log-attributes fish.payara.enterprise.server.logging.PayaraNotificationFileHandler.rotationTimelimitInMinutes='20'

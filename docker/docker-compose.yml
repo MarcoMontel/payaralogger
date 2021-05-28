@@ -1,0 +1,15 @@
+# Copyright (C) 2019 - 2021 FUJIFILM Italia S.p.A.
+# Medical Informatics Research & Development U.it:443
+# All Rights Reserved
+
+version: '3'
+services:
+    be:
+        image: "hub.bcom.syncromed.it:5000/payaralogger:1.0.0-SNAPSHOT"
+        volumes:
+            - ./logs:/var/log/payara
+            - ./certs:/certs
+            - ./config/be/resources:/resources
+        ports:
+            - 8383:8080
+
