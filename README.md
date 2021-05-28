@@ -1,6 +1,6 @@
 # Build
 
-mvn clean package
+mvn clean install
 
 # RUN
 
