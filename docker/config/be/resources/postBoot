@@ -1,3 +1,4 @@
 
 list-log-attributes
-set-log-attributes fish.payara.enterprise.server.logging.PayaraNotificationFileHandler.rotationTimelimitInMinutes='20'
+set-log-attributes com.sun.enterprise.server.logging.ODLLogFormatter.ansiColor='false'
+
