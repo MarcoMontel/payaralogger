@@ -5,7 +5,7 @@
 version: '3'
 services:
     be:
-        image: "hub.bcom.syncromed.it:5000/payaralogger:1.0.0-SNAPSHOT"
+        image: payarapostbootbug
         volumes:
             - ./logs:/var/log/payara
             - ./certs:/certs
